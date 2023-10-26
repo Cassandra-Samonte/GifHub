@@ -6,20 +6,18 @@ function App() {
     // Store API data here
     const [gifs, setGifs] = useState([])
 
-  // Query the API on component mount
-  useEffect(() => {
 
     // Define an async function to JSONify the query response  
-    async function getData() {
-      const res = await fetch('https://api.giphy.com/v1/gifs/trending/?api_key=xOtkJChTF94Y0SM4YPxhydzB9QSQevGM&limit=50')
+    async function getData(url) {
+      const res = await fetch(url)
       const { data } = await res.json()
-      setGifs(data)
-      console.log(data)
+      setGifs(gifs.concat(data))
     }
-
-    // Call the async function
-    getData()
-  }, [])
+  
+    // Query the API on component mount
+    useEffect(() => {
+      getData('https://api.giphy.com/v1/gifs/trending/?api_key=xOtkJChTF94Y0SM4YPxhydzB9QSQevGM&limit=50')
+    }, [])
 
   //  Create the HTML using JSX for the App component
   return (

@@ -3,11 +3,8 @@ import Card from '../Card'
 import './styles.css'
 
 export default function Gallery({ gifs }) {
-    // return (
-    //     <div className="gallery">
-    //         {gifs.length > 0 ? <img src={gifs[1].images.original.url} /> : <p>Your gif is loading...</p>}
-    //     </div>
-    // )
+    // Keep track of what gallery page the user is viewing
+    const [currentPage, setCurrentPage] = useState(1)
 
     // The default value of gallery content. What we see before the app finsihes querying the API
     let galleryContent = <p>Your gifs are loading...</p>
