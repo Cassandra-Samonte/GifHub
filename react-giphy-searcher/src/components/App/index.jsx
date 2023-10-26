@@ -24,7 +24,7 @@ function App() {
     <>
       <h1>GifHub</h1>
       <h4>A React Giphy Searcher</h4>
-      <Gallery gifs={gifs} />
+      <Gallery gifs={gifs} refreshQueue={getData} />
     </>
   );
 }
