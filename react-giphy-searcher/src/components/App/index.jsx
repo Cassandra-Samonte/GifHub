@@ -9,8 +9,8 @@ function App() {
     // Define an async function to JSONify the query response  
     async function getData() {
       const res = await fetch('https://api.giphy.com/v1/gifs/trending/?api_key=xOtkJChTF94Y0SM4YPxhydzB9QSQevGM&limit=50')
-      const gif = await res.json()
-      console.log(gif)
+      const { data } = await res.json()
+      console.log(data)
     }
 
     // Call the async function
