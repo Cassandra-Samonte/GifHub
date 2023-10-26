@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import Gallery from '../Gallery'
 import './styles.css'
 
 function App() {
@@ -22,13 +23,11 @@ function App() {
 
   //  Create the HTML using JSX for the App component
   return (
-    <div>
+    <>
       <h1>GifHub</h1>
       <h4>A React Giphy Searcher</h4>
-      <p>You have {gifs.length} gifs</p>
-      {gifs.length > 0 ? <img src={gifs[1].images.original.url} /> : <p>Your gif is loading...</p>}
-
-    </div>
+      <Gallery gifs={gifs} />
+    </>
   );
 }
 
