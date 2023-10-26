@@ -2,7 +2,7 @@ import { useState } from 'react'
 import Card from '../Card'
 import './styles.css'
 
-export default function Gallery({ gifs, refreshQueue }) {
+export default function Gallery({ gifs, refreshQueue, updateDetails }) {
     // Keep track of what gallery page the user is viewing
     const [currentPage, setCurrentPage] = useState(1)
 
@@ -20,10 +20,16 @@ export default function Gallery({ gifs, refreshQueue }) {
     // The default value of gallery content. What we see before the app finsihes querying the API
     let galleryContent = <p>Your gifs are loading...</p>
 
-    // Conditionally update the gallery content after the API returns data
-    if (gifs.length > 0) {
+    // Conditionally update the gallery content depending on the current page
+    if (gifs.length > 0 && currentPage > 1) {
+        const nextPage = currentPage + 1
         galleryContent = gifs
-            .map((gif, i) => <Card key={i} gifData={gif} />)
+            .slice(currentPage * 20, nextPage * 20) // get the 20 images of the array we want to see
+            .map((gif, i) => <Card key={i} gifData={gif} updateDetails={updateDetails} />) // map over the 20 images and render them in Card components
+    } else if (gifs.length > 0 && currentPage === 1) {
+        galleryContent = gifs
+            .slice(0, 20) // get the first 20 artworks when on the first page
+            .map((gif, i) => <Card key={i} gifData={gif} updateDetails={updateDetails} />)
     }
 
     //  Create the HTML using JSX for the App component

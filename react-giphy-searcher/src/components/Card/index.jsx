@@ -1,11 +1,10 @@
-export default function Card({ gifData }) {
+export default function Card({ gifData, updateDetails }) {
     return (
-        <figure>
+        <figure onClick={() => updateDetails(gifData) }>
             <img src={gifData.images.original.url} />
             <figcaption>
-                <h4>{gifData.title}</h4>
-                {/* Use ternary here in the event username does not exist */}
-                {/* <h4>{gifData.username}</h4> */}
+                <h2>{gifData.title}</h2>
+                <h3>{gifData.username}</h3>
             </figcaption>
         </figure>
     )

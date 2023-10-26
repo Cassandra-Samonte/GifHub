@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react'
 import Gallery from '../Gallery'
+import Details from '../Details'
 import './styles.css'
 
 function App() {
     // Store API data here
     const [gifs, setGifs] = useState([])
-
+    const [detailsData, setDetailsData] = useState({})
 
     // Define an async function to JSONify the query response  
     async function getData(url) {
@@ -24,9 +25,16 @@ function App() {
     <>
       <h1>GifHub</h1>
       <h4>A React Giphy Searcher</h4>
-      <Gallery gifs={gifs} refreshQueue={getData} />
+      <Gallery 
+        gifs={gifs} 
+        refreshQueue={getData}
+        updateDetails={setDetailsData}
+      />
+    
+      {/* We can either use a normal ternary or a double ampersand */}
+      {detailsData.id && <Details {...detailsData} />}
     </>
-  );
+  )
 }
 
 export default App;
