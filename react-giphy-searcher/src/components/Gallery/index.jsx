@@ -8,7 +8,7 @@ export default function Gallery({ gifs, refreshQueue, updateDetails }) {
 
         // Event handler for the next Page Button
         function getNextPage() {
-            refreshQueue(`https://api.giphy.com/v1/gifs/trending/?api_key=xOtkJChTF94Y0SM4YPxhydzB9QSQevGM&limit=50&skip=${gifs.length}`)
+            refreshQueue(`https://api.giphy.com/v1/gifs/trending/?api_key=xOtkJChTF94Y0SM4YPxhydzB9QSQevGM&limit=50&offset=${gifs.length}`)
             setCurrentPage(currentPage + 1)
         }
     
@@ -24,11 +24,11 @@ export default function Gallery({ gifs, refreshQueue, updateDetails }) {
     if (gifs.length > 0 && currentPage > 1) {
         const nextPage = currentPage + 1
         galleryContent = gifs
-            .slice(currentPage * 20, nextPage * 20) // get the 20 images of the array we want to see
+            .slice(gifs.length - 50, gifs.length + 50) // get the 20 images of the array we want to see
             .map((gif, i) => <Card key={i} gifData={gif} updateDetails={updateDetails} />) // map over the 20 images and render them in Card components
     } else if (gifs.length > 0 && currentPage === 1) {
         galleryContent = gifs
-            .slice(0, 20) // get the first 20 artworks when on the first page
+            .slice(0, 50) // get the first 20 artworks when on the first page
             .map((gif, i) => <Card key={i} gifData={gif} updateDetails={updateDetails} />)
     }
 

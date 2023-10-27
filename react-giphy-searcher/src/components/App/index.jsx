@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react'
-import Gallery from '../Gallery'
-import Details from '../Details'
+import { useEffect, useState } from 'react'
+import { Routes, Route, Link } from "react-router-dom";
+import HomePage from '../HomePage'
+import DetailsPage from '../DetailsPage'
 import './styles.css'
 
 function App() {
@@ -23,18 +24,32 @@ function App() {
   //  Create the HTML using JSX for the App component
   return (
     <>
-      <h1>GifHub</h1>
-      <h4>A React Giphy Searcher</h4>
-      <Gallery 
-        gifs={gifs} 
-        refreshQueue={getData}
-        updateDetails={setDetailsData}
-      />
-    
-      {/* We can either use a normal ternary or a double ampersand */}
-      {detailsData.id && <Details {...detailsData} />}
+        <nav className="bg-gray-800 shadow-lg">
+            <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+                <div className="relative flex items-center justify-between h-16">
+                    <div className="flex-shrink-0">
+                        <Link to="/">
+                            <h2 className="text-white font-bold text-2xl">GifHub</h2>
+                        </Link>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <Routes>
+            <Route path="/" element={
+                <HomePage
+                    gifs={gifs}
+                    getData={getData}
+                    setDetailsData={setDetailsData}
+                />}
+            />
+            <Route path="/home" element={<HomePage />} />
+            <Route path="/details" element={<DetailsPage {...detailsData} />} />
+        </Routes>
     </>
-  )
+)
 }
+
 
 export default App;
