@@ -15,7 +15,7 @@ html {
 
 body {
   min-height: 100vh;
-  background: linear-gradient(0deg, rgb(40, 40, 41) 0%, rgb(121, 121, 128) 72%);
+  background: white;
   overflow: overlay;
   overflow-x: hidden;
 }
