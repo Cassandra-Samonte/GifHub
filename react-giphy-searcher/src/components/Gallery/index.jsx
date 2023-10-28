@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Card from '../Card'
 import './styles.css'
 
+
 export default function Gallery({ gifs, refreshQueue, url, updateDetails }) {
     // Keep track of what gallery page the user is viewing
     const [currentPage, setCurrentPage] = useState(1)
@@ -38,7 +39,7 @@ export default function Gallery({ gifs, refreshQueue, url, updateDetails }) {
     //  Create the HTML using JSX for the App component
     return (
         <>
-            <div className="flex flex-wrap justify-around p-10">
+            <div className="grid grid-cols-5 flex flex-wrap justify-around p-10">
                 {galleryContent}
             </div>
 
