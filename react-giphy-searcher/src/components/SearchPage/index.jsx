@@ -47,6 +47,11 @@ export default function SearchPage(props) {
                 </button>
             </form>
 
+            {/* Display the search query */}
+            <div className="text-center mt-4">
+                <p className="text-lg font-medium">Search Results for: {query}</p>
+            </div>
+
             <Gallery
                 gifs={queryResults}
                 refreshQueue={getData}
