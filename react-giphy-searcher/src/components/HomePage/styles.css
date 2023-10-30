@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'Boris'; 
+    src: url('/src/assets/BorisBlackBloxx.ttf');
+  }
+
+h1 {
+    padding-top: 40px;
+    font-family: 'Boris';
+    font-size: 30px !important;
+}
