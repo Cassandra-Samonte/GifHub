@@ -1,5 +1,6 @@
-.gallery {
+#gallery {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    padding: 60px 40px 0px 40px;
 }

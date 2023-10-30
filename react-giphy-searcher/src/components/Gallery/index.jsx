@@ -2,7 +2,6 @@ import { useState } from 'react'
 import Card from '../Card'
 import './styles.css'
 
-
 export default function Gallery({ gifs, refreshQueue, url, updateDetails }) {
     // Keep track of what gallery page the user is viewing
     const [currentPage, setCurrentPage] = useState(1)
@@ -34,16 +33,18 @@ export default function Gallery({ gifs, refreshQueue, url, updateDetails }) {
     }
 
     // Save button class names to a variable
-    const btnClasses = 'text-gray-300 hover:text-white hover:bg-gray-800 font-bold p-3 bg-gray-700 rounded cursor-pointer'
+    const btnClasses = "text-gray-300 hover:text-white hover:bg-gray-800 font-bold p-3 bg-gray-700 rounded cursor-pointer"
 
     //  Create the HTML using JSX for the App component
     return (
         <>
-            <div className="grid grid-cols-5 flex flex-wrap justify-around p-10">
+        <div id="gallery">
+            <div className="grid grid-cols-5 flex flex-wrap justify-around">
                 {galleryContent}
             </div>
+        </div>
 
-            <div className='py-16 px-20 flex justify-between'>
+            <div className="py-16 px-20 flex justify-between">
                 <button className={btnClasses} onClick={getPrevPage}>Previous Page</button>
                 <button className={btnClasses} onClick={getNextPage}>Next Page</button>
             </div>

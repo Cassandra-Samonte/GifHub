@@ -3,7 +3,6 @@ import { Routes, Route, Link } from "react-router-dom";
 import HomePage from '../HomePage'
 import DetailsPage from '../DetailsPage'
 import SearchPage from '../SearchPage'
-import './styles.css'
 
 function App() {
     // Store API data here

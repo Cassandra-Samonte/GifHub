@@ -1,10 +1,11 @@
 import Gallery from '../Gallery'
-import SearchPage from "../SearchPage"
-
+// import SearchPage from "../SearchPage"
 
 export default function HomePage(props) {
     return (
         <>
+            <h1>GifHub
+            <br></br>A React Giphy Searcher</h1>
             {/* <SearchPage
             /> */}
             <Gallery 

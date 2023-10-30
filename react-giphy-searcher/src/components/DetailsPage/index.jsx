@@ -1,5 +1,3 @@
-import './styles.css'
-
 export default function DetailsPage({ images, title, username, user }) {
     return (
         <div className="border border-white p-4 pt-16">
