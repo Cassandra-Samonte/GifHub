@@ -5,7 +5,7 @@ import './styles.css'
 export default function HomePage(props) {
     return (
         <>
-            <h1>GifHub</h1>
+            {/* <h1>GifHub</h1> */}
             {/* <SearchPage
             /> */}
             <Gallery 

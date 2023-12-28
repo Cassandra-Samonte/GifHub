@@ -29,7 +29,7 @@ export default function SearchPage(props) {
         <div className="search-page p-10">
             <form onSubmit={handleQuerySubmit} className="mt-4 text-center">
                 <label htmlFor="search" className="block font-medium mb-1">
-                    <h1 className="text-3xl font-bold">Search for Gifs</h1>
+                    <h2 className="text-3xl font-bold">Search for Gifs</h2>
                 </label>
                 <br />
                 <input
