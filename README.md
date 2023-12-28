@@ -9,6 +9,5 @@
 
 # Technologies Used
 * React
-* Node.js
 * Giphy API
 * Tailwind CSS
